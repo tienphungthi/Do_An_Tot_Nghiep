@@ -1,0 +1,167 @@
+﻿@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+@model QlLopHocSinhVien.Model.Entities.NhanVien
+
+@{
+    //ViewData["Title"] = "Edit";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+@{
+    var selectStatus1 = Model.TrangThaiNhanSu == "1" ? "selected" : "";
+    var selectStatus2 = Model.TrangThaiNhanSu == "2" ? "selected" : "";
+    var selectStatus3 = Model.TrangThaiNhanSu == "3" ? "selected" : "";
+}
+
+<div class="col-md-12">
+    <div class="card mb-4">
+        <h5 class="card-header">@ViewBag.Title</h5>
+        <div class="card-body">
+            <form action="Edit" method="post">
+                <div class="row">
+                    <div class="col-md-8 mb-1">
+                        <div class="card shadow-none bg-transparent border border-primary">
+                            <h5 class="card-header">Thông tin nhân viên</h5>
+                            <div class="card-body">
+                                <div class="row">
+                                    <div class="mb-3 col-12 col-md-4 col-lg-4">
+                                        <label class="form-label">Mã nhân viên</label>
+                                        <input type="hidden" class="form-control form-control-sm" name="MaNV" value="@Model.MaNv" required>
+                                        <input type="text" class="form-control form-control-sm" value="@Model.MaNv" disabled>
+                                    </div>
+
+                                    <div class="mb-3 col-12 col-md-4 col-lg-4">
+                                        <label class="form-label">Tên nhân viên</label>
+                                        <input type="text" class="form-control form-control-sm" name="Ten" value="@Model.Ten" required>
+                                    </div>
+
+                                    <div class="mb-3 col-12 col-md-4 col-lg-4">
+                                        <label class="form-label">Trạng thái</label>
+
+                                        <input type="hidden" class="form-control form-control-sm" id="statusemployee" value="@Model.TrangThaiNhanSu">
+                                        <select class="form-select form-select-sm" name="TrangThaiNhanSu" id="cbostatusemployee">
+                                            <option value="1">Đang công tác</option>
+                                            <option value="2">Thai sản</option>
+                                            <option value="3">Nghỉ việc</option>
+                                        </select>
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="mb-3 col-12 col-md-6 col-lg-6">
+                                        <label class="form-label">SĐT</label>
+                                        <input type="text" class="form-control form-control-sm" name="SDT" value="@Model.Sdt" required>
+                                    </div>
+
+                                    <div class="mb-3 col-12 col-md-6 col-lg-6">
+                                        <label class="form-label">Gmail</label>
+                                        <input type="email" class="form-control form-control-sm" name="Gmail" value="@Model.Gmail">
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="mb-3 col-12 col-md-6 col-lg-6">
+                                        <label class="form-label">Phòng ban</label>
+                                        <div class="input-group">
+                                            <select class="form-select form-select-sm" name="MaPB" asp-items="@ViewBag.PhongBan">
+                                                <option value="">--Chọn phòng ban--</option>
+                                            </select>
+                                            <a class="btn btn-success btn-sm p-1" href="/Admin/PhongBan/Create"><i class='bx bx-plus-medical'></i></a>
+                                        </div>
+                                    </div>
+
+                                    <div class="mb-3 col-12 col-md-6 col-lg-6">
+                                        <label class="form-label">Chức vụ</label>
+                                        <div class="input-group">
+                                            <select class="form-select form-select-sm" name="MaCV" asp-items="@ViewBag.ChucVu">
+                                                <option value="">--Chọn chức vụ--</option>
+                                            </select>
+                                            <a class="btn btn-success btn-sm p-1" href="/Admin/ChucVu/Create"><i class='bx bx-plus-medical'></i></a>
+                                        </div>
+                                    </div>
+
+                                    <input type="hidden" class="form-control form-control-sm" name="MaTaiKhoan" value="@Model.MaTaiKhoan">
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <div class="col-md-4 mb-1">
+                        <div class="card shadow-none bg-transparent border border-danger">
+                            <h5 class="card-header">Thông tin tài khoản</h5>
+                            <div class="card-body">
+                                <div class="row">
+                                    <div class="mb-3 col-12 col-md-6 col-lg-6">
+                                        <label class="form-label invisible">Quyền đăng nhập</label>
+                                        <div class="form-check form-switch form-control form-control-sm border-0">
+                                            <input class="form-check-input" type="checkbox" id="flexSwitchCheckChecked" name="isAccount" value="true" onclick="return onChangeStatus()">
+                                            <label class="form-check-label" for="flexSwitchCheckChecked">Tạo tài khoản</label>
+                                        </div>
+                                    </div>
+                                    <div class="mb-3 col-12 col-md-6 col-lg-6">
+                                        <p class="text-danger">@ViewBag.Message</p>
+                                    </div>
+
+                                </div>
+                                <div class="row">
+                                    <div class="mb-3 col-12 col-md-6 col-lg-6">
+                                        <label class="form-label">Mã tài khoản<span class="text-danger"> (*)</span></label>
+                                        <input type="text" class="form-control form-control-sm" id="accountcode" name="id" value="@Model.MaTaiKhoan" autocomplete="off" required>
+
+                                    </div>
+
+                                    <div class="mb-3 col-12 col-md-6 col-lg-6">
+                                        <label class="form-label">Tên tài khoản<span class="text-danger"> (*)</span></label>
+                                        <input type="text" class="form-control form-control-sm" id="username" name="username" value="@ViewBag.TenTaiKhoan" autocomplete="off" required>
+                                    </div>
+
+                                    <div class="mb-3 col-12">
+                                        <label class="form-label">Mật khẩu<span class="text-danger"> (*)</span></label>
+                                        <input type="password" class="form-control form-control-sm" id="password" name="password" value="@ViewBag.MatKhau" autocomplete="off" required>
+                                    </div>
+                                </div>
+
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card-footer p-0">
+                    <button type="submit" class="btn btn-primary btn-sm">Lưu</button>
+                    <a class="btn btn-danger btn-sm" href="/Admin/NhanVien/Index">Hủy</a>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+
+<script>
+
+    $(document).ready(function () {
+
+        $('#cbostatusemployee').val($('#statusemployee').val());
+
+        onChangeStatus();
+    })
+
+    function onChangeStatus() {
+        var flexSwitchCheckChecked = document.getElementById('flexSwitchCheckChecked').checked;
+
+        var accountcode = document.getElementById('accountcode');
+        var username = document.getElementById('username');
+        var password = document.getElementById('password');
+
+        if (flexSwitchCheckChecked) {
+            accountcode.removeAttribute('disabled');
+            username.removeAttribute('disabled');
+            password.removeAttribute('disabled');
+        } else {
+            accountcode.setAttribute('disabled', 'disabled');
+            username.setAttribute('disabled', 'disabled');
+            password.setAttribute('disabled', 'disabled');
+        }
+
+    }
+</script>

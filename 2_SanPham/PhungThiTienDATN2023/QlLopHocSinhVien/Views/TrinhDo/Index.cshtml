@@ -1,0 +1,54 @@
+﻿@model IEnumerable<QlLopHocSinhVien.Model.Entities.TrinhDo>
+@{
+    ViewData["Title"] = "Index";
+
+}
+
+<div class="row">
+    <div class="col-md-12 grid-margin stretch-card">
+        <div class="card">
+            <div class="card-body">
+
+                <button id="button" class="btn btn-primary mb-3">Xóa một hàng</button>
+                <a href="/TrinhDo/Create" class="btn btn-warning  mb-3">Thêm mới</a>
+                <div class="table-responsive">
+                    <table id="example" class="table hover">
+                        <thead>
+                            <tr class="table-success">
+                                <th>STT</th>
+                                <th>Mã trình độ</th>
+                                <th>Tên trình độ</th>
+                                <th>Thứ tự</th>
+                                
+
+                                <th>Quản lý</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var item in Model)
+                            {
+                                <tr class="table-danger">
+                                    <td></td>
+                                    <td>@item.MaTrinhDo</td>
+                                    <td>@item.TenTrinhDo</td>
+                                    <td>@item.ThuTu</td>
+                                   
+
+                                    <td>
+                                        <a href="/TrinhDo/Edit/@item.MaTrinhDo" class="btn btn-primary">Sửa</a>
+                                        <a href="/TrinhDo/Delete/@item.MaTrinhDo" class="btn btn-warning" style="color:red">Xóa</a>
+
+                                    </td>
+                                </tr>
+
+                            }
+
+                        </tbody>
+                    </table>
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,189 @@
+﻿@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+@model QlLopHocSinhVien.Model.Entities.HocVien
+@{
+    //ViewData["Title"] = "Create";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+<div class="col-12">
+    <div class="card mb-4">
+        <h5 class="card-header">@ViewBag.Title</h5>
+        <div class="card-body">
+            <form action="Edit" method="post">
+                <p class="text-danger">@ViewBag.Message</p>
+
+                <div class="row">
+                    <div class="col-md-8 mb-1">
+                        <div class="card shadow-none bg-transparent border border-primary">
+                            <h5 class="card-header">Thông tin học viên</h5>
+                            <div class="card-body">
+                                <div class="row">
+                                    <div class="mb-3 col-12 col-md-4 col-lg-4">
+                                        <label class="form-label">Mã<span class="text-danger"> (*)</span></label>
+                                        <input type="hidden" class="form-control form-control-sm" value="@Model.MaHv" disabled>
+                                        <input type="text" class="form-control form-control-sm" name="mahv" value="@Model.MaHv" required>
+                                    </div>
+
+                                    <div class="mb-3 col-12 col-md-4 col-lg-4">
+                                        <label class="form-label">Họ tên<span class="text-danger"> (*)</span></label>
+                                        <input type="text" class="form-control form-control-sm" name="hoten" value="@Model.HoTen" required>
+                                    </div>
+
+                                    <div class="mb-3 col-12 col-md-4 col-lg-4">
+                                        <label class="form-label">Ảnh</label>
+                                        <input type="file" class="form-control form-control-sm" name="anh">
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="mb-3 col-12 col-md-3 col-lg-3">
+                                        <label class="form-label">Lớp học<span class="text-danger"> (*)</span></label>
+                                        <select class="form-select form-select-sm" name="malh" asp-items="@ViewBag.LopHoc" required>
+                                            <option value="">--Chọn lớp học--</option>
+                                        </select>
+                                    </div>
+
+                                    <div class="mb-3 col-12 col-md-3 col-lg-3">
+                                        <label class="form-label">SĐT<span class="text-danger"> (*)</span></label>
+                                        <input type="text" class="form-control form-control-sm" name="SDT" value="@Model.Sdt" required>
+                                    </div>
+
+                                    <div class="mb-3 col-12 col-md-3 col-lg-3">
+                                        <label class="form-label">Gmail<span class="text-danger"> (*)</span></label>
+                                        <input type="email" class="form-control form-control-sm" name="Gmail" value="@Model.Gmail" required>
+                                    </div>
+
+                                    <div class="mb-3 col-12 col-md-3 col-lg-3">
+                                        <label class="form-label">Trạng thái</label>
+                                        <input type="hidden" class="form-control form-control-sm" id="status_student" value="@Model.HoatDong">
+                                        <select class="form-select form-select-sm" name="hoatdong" id="cbostatus_student">
+                                            <option value="1">Đang hoạt động</option>
+                                            <option value="2">Dừng hoạt động</option>
+                                        </select>
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="mb-3 col-12 col-md-3 col-lg-3">
+                                        <label class="form-label">Giới tính</label>
+
+                                        <input type="hidden" class="form-control form-control-sm" id="gender_student" value="@Model.GioiTinh">
+                                        <select class="form-select form-select-sm" name="gioitinh" id="cbostatus_gender">
+                                            <option value="1">Nam</option>
+                                            <option value="2">Nữ</option>
+                                            <option value="3">Khác</option>
+                                        </select>
+                                    </div>
+
+                                    <div class="mb-3 col-12 col-md-3 col-lg-3">
+                                        <label class="form-label">Ngày sinh<span class="text-danger"> (*)</span></label>
+                                        <input type="date" class="form-control form-control-sm" name="ngaysinh" value="@Model.NgaySinh.Value.ToString("yyyy-MM-dd")" required>
+                                    </div>
+
+                                    <div class="mb-3 col-12 col-md-3 col-lg-3">
+                                        <label class="form-label">Trường học</label>
+                                        <input type="text" class="form-control form-control-sm" name="truonghoc" value="@Model.TruongHoc">
+                                    </div>
+
+                                    <div class="mb-3 col-12 col-md-3 col-lg-3">
+                                        <label class="form-label">Trình độ</label>
+                                        <input type="text" class="form-control form-control-sm" name="trinhdochuyenmon" value="@Model.TrinhDoChuyenMon">
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="mb-3 col-12 col-md-6 col-lg-6">
+                                        <label class="form-label">Địa chỉ<span class="text-danger"> (*)</span></label>
+                                        <input type="text" class="form-control form-control-sm" name="diachi" value="@Model.DiaChi" required>
+                                    </div>
+
+                                    <div class="mb-3 col-12 col-md-3 col-lg-3">
+                                        <label class="form-label">Thành phố</label>
+                                        <input type="text" class="form-control form-control-sm" name="thanhpho" value="@Model.ThanhPho">
+                                    </div>
+
+                                    <div class="mb-3 col-12 col-md-3 col-lg-3">
+                                        <label class="form-label">Quận</label>
+                                        <input type="text" class="form-control form-control-sm" name="quan" value="@Model.Quan">
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="mb-3 col-12 col-md-4 col-lg-4">
+                                        <label class="form-label">Facebook</label>
+                                        <input type="text" class="form-control form-control-sm" name="facebook" value="@Model.Facebook">
+                                    </div>
+
+                                    <div class="mb-3 col-12 col-md-4 col-lg-4">
+                                        <label class="form-label">Ngày tham gia <span class="text-danger"> (*)</span></label>
+                                        <input type="date" class="form-control form-control-sm" name="ngaythamgia" value="@Model.NgayThamGia.Value.ToString("yyyy-MM-dd")" required>
+                                    </div>
+
+                                    <div class="mb-3 col-12 col-md-4 col-lg-4">
+                                        <label class="form-label">Nghề nghiệp</label>
+                                        <input type="text" class="form-control form-control-sm" name="nghenghiep" value="@Model.NgheNghiep">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <div class="col-md-4 mb-1">
+                        <div class="card shadow-none bg-transparent border border-danger">
+                            <h5 class="card-header">Thông tin tài khoản</h5>
+                            <div class="card-body">
+                                <div class="row">
+                                    <div class="mb-3 col-12 col-md-6 col-lg-6">
+                                        <label class="form-label">Mã tài khoản</label>
+                                        <input type="text" class="form-control form-control-sm" id="code_account_show" value="@Model.MaTaiKhoan" disabled>
+                                        <input type="text" class="form-control form-control-sm" id="code_account" name="mataikhoan" value="@Model.MaTaiKhoan" autocomplete="off">
+
+                                    </div>
+
+                                    <div class="mb-3 col-12 col-md-6 col-lg-6">
+                                        <label class="form-label">Tên tài khoản</label>
+                                        <input type="text" class="form-control form-control-sm" name="username" value="@ViewBag.TenTaiKhoan" autocomplete="off">
+                                    </div>
+
+                                    <div class="mb-3 col-12">
+                                        <label class="form-label">Mật khẩu</label>
+                                        <input type="password" class="form-control form-control-sm" name="password" value="@ViewBag.MatKhau" autocomplete="off">
+                                    </div>
+                                </div>
+
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+
+                <button type="submit" class="btn btn-primary btn-sm">Lưu</button>
+                <a class="btn btn-danger btn-sm" asp-action="Index">Hủy</a>
+            </form>
+
+        </div>
+    </div>
+</div>
+
+<script>
+
+    $(document).ready(function () {
+
+        $('#cbostatus_gender').val($('#gender_student').val());
+        $('#cbostatus_student').val($('#status_student').val());
+
+        var code_account = $('#code_account').val();
+        if (code_account == ''){
+            $('#code_account_show').hide();
+            $('#code_account').show();
+        }else{
+            $('#code_account').hide();
+            $('#code_account_show').show();
+        }
+    })
+
+    
+</script>

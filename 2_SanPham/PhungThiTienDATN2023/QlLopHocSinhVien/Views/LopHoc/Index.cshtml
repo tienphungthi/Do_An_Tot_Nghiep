@@ -1,0 +1,51 @@
+﻿@model IEnumerable<QlLopHocSinhVien.Model.Entities.LopHoc>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@*    <div class="row">
+        <div class="col-md-12 grid-margin stretch-card">
+            <div class="card">
+                <div class="card-body">
+               
+                    <div class="table-responsive">
+                        <table id="example" class="table hover">
+                            <thead>
+                                <tr class="table-success">
+                                    <th>STT</th>
+                                    <th>Mã chức vụ</th>
+                                    <th>Tên chức vụ</th>
+
+                                    <th>Mô tả</th>
+
+                                    <th>Quản lý</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach (var item in Model)
+                                {
+                                    <tr class="table-danger">
+                                        <td></td>
+                                        <td>@item.MaLh</td>
+                                        <td>@item.TenLop</td>
+                                        <td>@item.TinhTrang</td>
+
+                                        <td>
+                                        <a href="/ChucVu/Edit/@item.MaLh" class="btn btn-primary">Sửa</a>
+                                        <a href="/ChucVu/Delete/@item.MaLh" class="btn btn-warning" style="color:red">Xóa</a>
+
+                                        </td>
+                                    </tr>
+
+                                }
+
+                            </tbody>
+                        </table>
+
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>*@

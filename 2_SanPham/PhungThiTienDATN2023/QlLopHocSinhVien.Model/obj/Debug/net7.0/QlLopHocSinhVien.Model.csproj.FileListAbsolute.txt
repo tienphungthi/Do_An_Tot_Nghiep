@@ -1,0 +1,14 @@
+D:\1. DATN_PhungThiTien\2_SanPham\PhungThiTienDATN2023\QlLopHocSinhVien.Model\bin\Debug\net7.0\QlLopHocSinhVien.Model.deps.json
+D:\1. DATN_PhungThiTien\2_SanPham\PhungThiTienDATN2023\QlLopHocSinhVien.Model\bin\Debug\net7.0\QlLopHocSinhVien.Model.runtimeconfig.json
+D:\1. DATN_PhungThiTien\2_SanPham\PhungThiTienDATN2023\QlLopHocSinhVien.Model\bin\Debug\net7.0\QlLopHocSinhVien.Model.dll
+D:\1. DATN_PhungThiTien\2_SanPham\PhungThiTienDATN2023\QlLopHocSinhVien.Model\bin\Debug\net7.0\QlLopHocSinhVien.Model.pdb
+D:\1. DATN_PhungThiTien\2_SanPham\PhungThiTienDATN2023\QlLopHocSinhVien.Model\obj\Debug\net7.0\QlLopHocSinhVien.Model.csproj.AssemblyReference.cache
+D:\1. DATN_PhungThiTien\2_SanPham\PhungThiTienDATN2023\QlLopHocSinhVien.Model\obj\Debug\net7.0\QlLopHocSinhVien.Model.GeneratedMSBuildEditorConfig.editorconfig
+D:\1. DATN_PhungThiTien\2_SanPham\PhungThiTienDATN2023\QlLopHocSinhVien.Model\obj\Debug\net7.0\QlLopHocSinhVien.Model.AssemblyInfoInputs.cache
+D:\1. DATN_PhungThiTien\2_SanPham\PhungThiTienDATN2023\QlLopHocSinhVien.Model\obj\Debug\net7.0\QlLopHocSinhVien.Model.AssemblyInfo.cs
+D:\1. DATN_PhungThiTien\2_SanPham\PhungThiTienDATN2023\QlLopHocSinhVien.Model\obj\Debug\net7.0\QlLopHocSinhVien.Model.csproj.CoreCompileInputs.cache
+D:\1. DATN_PhungThiTien\2_SanPham\PhungThiTienDATN2023\QlLopHocSinhVien.Model\obj\Debug\net7.0\QlLopHocSinhVien.Model.dll
+D:\1. DATN_PhungThiTien\2_SanPham\PhungThiTienDATN2023\QlLopHocSinhVien.Model\obj\Debug\net7.0\refint\QlLopHocSinhVien.Model.dll
+D:\1. DATN_PhungThiTien\2_SanPham\PhungThiTienDATN2023\QlLopHocSinhVien.Model\obj\Debug\net7.0\QlLopHocSinhVien.Model.pdb
+D:\1. DATN_PhungThiTien\2_SanPham\PhungThiTienDATN2023\QlLopHocSinhVien.Model\obj\Debug\net7.0\QlLopHocSinhVien.Model.genruntimeconfig.cache
+D:\1. DATN_PhungThiTien\2_SanPham\PhungThiTienDATN2023\QlLopHocSinhVien.Model\obj\Debug\net7.0\ref\QlLopHocSinhVien.Model.dll

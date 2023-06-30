@@ -1,0 +1,60 @@
+﻿@model IEnumerable<QlLopHocSinhVien.Model.Entities.KhoaHoc>
+@{
+    ViewData["Title"] = "Details";
+}
+
+
+<form class="form-inline">
+    Nhập nội dung tìm kiếm
+    <input type="text" name="name" />Số buổi từ
+    <input type="text" name="to" />đến
+    <input type="text" name="from" />
+    <button asp-action="Search" method="get">Tìm</button>
+</form>
+<div class="row">
+    <div class="col-md-12 grid-margin stretch-card">
+        <div class="card">
+            <div class="card-body">
+
+                <button id="button" class="btn btn-primary mb-3">Xóa một hàng</button>
+                <a href="/KhoaHoc/Create" class="btn btn-warning  mb-3">Thêm mới</a>
+                <div class="table-responsive">
+                    <table id="example" class="table hover">
+                        <thead>
+                            <tr class="table-success">
+                                <th>STT</th>
+                                <th>Mã khóa học</th>
+                                <th>Hình ảnh</th>
+                                <th>Tiêu đề</th>
+                                <th>Nội dung</th>
+
+                                <th>Quản lý</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var item in Model)
+                            {
+                                <tr class="table-danger">
+                                    <td></td>
+                                    <td>@item.MaKh</td>
+                                    <td>@item.Anh</td>
+                                    <td>@item.TieuDe</td>
+                                    <td>@item.NoiDung</td>
+
+                                    <td>
+                                        <a href="/KhoaHoc/Edit/@item.MaKh" class="btn btn-primary ">Sửa</a>
+                                        <a href="/KhoaHoc/Delete/@item.MaKh" class="btn btn-warning" style="color:red">Xóa</a>
+
+                                    </td>
+                                </tr>
+                            }
+
+                        </tbody>
+                    </table>
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>

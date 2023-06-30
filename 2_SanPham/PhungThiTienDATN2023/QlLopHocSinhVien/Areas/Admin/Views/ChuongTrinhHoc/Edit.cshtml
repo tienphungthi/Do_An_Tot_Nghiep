@@ -1,0 +1,64 @@
+﻿@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+@model QlLopHocSinhVien.Model.Entities.ChuongTrinhHoc
+
+@{
+    //ViewData["Title"] = "Create";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+<div class="col-12">
+    <div class="card mb-4">
+        <h5 class="card-header">@ViewBag.Title</h5>
+        <div class="card-body">
+            <form action="Edit" method="post">
+                <p class="text-danger">@ViewBag.Message</p>
+                <div class="row">
+                    <div class="mb-3 col-12 col-md-6 col-lg-6">
+                        <label class="form-label">Mã</label>
+                        <input type="text" class="form-control form-control-sm" value="@Model.MaCth" disabled>
+                        <input type="hidden" class="form-control form-control-sm" name="macth" value="@Model.MaCth" required>
+                    </div>
+
+                    <div class="mb-3 col-12 col-md-6 col-lg-6">
+                        <label class="form-label">Tiêu đề</label>
+                        <input type="text" class="form-control form-control-sm" name="tieude" value="@Model.TieuDe" required>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="mb-3 col-12 col-md-6 col-lg-6">
+                        <label class="form-label">Trạng thái</label>
+                        <input type="hidden" class="form-control form-control-sm" id="statusvalue" value="@Model.TrangThai" disabled>
+                        <select class="form-select form-select-sm" name="trangthai" id="cbostatus">
+                            <option value="1">Sử dụng</option>
+                            <option value="2">Hết hạn</option>
+                        </select>
+                    </div>
+
+                    <div class="mb-3 col-12 col-md-6 col-lg-6">
+                        <label class="form-label">Tổng số buổi</label>
+                        <input type="number" class="form-control form-control-sm" name="tongsobuoi" min="0" value="@Model.TongSoBuoi" required>
+                    </div>
+
+                    <div class="mb-3 col-12">
+                        <label class="form-label">Nôi dung</label>
+                        <textarea type="text" class="form-control form-control-sm" name="noidung" required>@Model.NoiDung</textarea>
+                    </div>
+                </div>
+
+                <button type="submit" class="btn btn-primary btn-sm">Lưu</button>
+                <a class="btn btn-danger btn-sm" asp-action="Index">Hủy</a>
+            </form>
+
+        </div>
+    </div>
+</div>
+
+
+<script>
+
+    $(document).ready(function () {
+
+        $('#cbostatus').val($('#statusvalue').val());
+    })
+</script>

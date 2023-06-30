@@ -1,0 +1,33 @@
+﻿@model QlLopHocSinhVien.Model.Entities.TrinhDo
+@{
+    ViewData["Title"] = "Create";
+}
+
+<form href="/TrinhDo/Create" method="post">
+    <div class="form-group">
+        <lable asp-for="MaTrinhDo">Mã trình độ</lable>
+        <input asp-for="MaTrinhDo" class="form-control" />
+
+        <span asp-validation-for="MaTrinhDo" class="text-danger"></span>
+
+    </div>
+    <div class="form-group">
+        <lable asp-for="TenTrinhDo">Tên trình độ</lable>
+        <input asp-for="TenTrinhDo" class="form-control" />
+        <span asp-validation-for="TenTrinhDo" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <lable asp-for="ThuTu">Thứ tự</lable>
+        <input asp-for="ThuTu" class="form-control" />
+        <span asp-validation-for="ThuTu" class="text-danger"></span>
+    </div>
+    
+
+    <div class="form-group">
+        <button class="btn btn-success">Lưu</button>
+    </div>
+
+    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+</form>

@@ -1,0 +1,17 @@
+D:\1. DATN_PhungThiTien\2_SanPham\PhungThiTienDATN2023\QlLopHocSinhVien.Service\bin\Debug\net7.0\QlLopHocSinhVien.Service.deps.json
+D:\1. DATN_PhungThiTien\2_SanPham\PhungThiTienDATN2023\QlLopHocSinhVien.Service\bin\Debug\net7.0\QlLopHocSinhVien.Service.dll
+D:\1. DATN_PhungThiTien\2_SanPham\PhungThiTienDATN2023\QlLopHocSinhVien.Service\bin\Debug\net7.0\QlLopHocSinhVien.Service.pdb
+D:\1. DATN_PhungThiTien\2_SanPham\PhungThiTienDATN2023\QlLopHocSinhVien.Service\bin\Debug\net7.0\QlLopHocSinhVien.Model.dll
+D:\1. DATN_PhungThiTien\2_SanPham\PhungThiTienDATN2023\QlLopHocSinhVien.Service\bin\Debug\net7.0\QlLopHocSinhVien.Repository.dll
+D:\1. DATN_PhungThiTien\2_SanPham\PhungThiTienDATN2023\QlLopHocSinhVien.Service\bin\Debug\net7.0\QlLopHocSinhVien.Model.pdb
+D:\1. DATN_PhungThiTien\2_SanPham\PhungThiTienDATN2023\QlLopHocSinhVien.Service\bin\Debug\net7.0\QlLopHocSinhVien.Repository.pdb
+D:\1. DATN_PhungThiTien\2_SanPham\PhungThiTienDATN2023\QlLopHocSinhVien.Service\obj\Debug\net7.0\QlLopHocSinhVien.Service.csproj.AssemblyReference.cache
+D:\1. DATN_PhungThiTien\2_SanPham\PhungThiTienDATN2023\QlLopHocSinhVien.Service\obj\Debug\net7.0\QlLopHocSinhVien.Service.GeneratedMSBuildEditorConfig.editorconfig
+D:\1. DATN_PhungThiTien\2_SanPham\PhungThiTienDATN2023\QlLopHocSinhVien.Service\obj\Debug\net7.0\QlLopHocSinhVien.Service.AssemblyInfoInputs.cache
+D:\1. DATN_PhungThiTien\2_SanPham\PhungThiTienDATN2023\QlLopHocSinhVien.Service\obj\Debug\net7.0\QlLopHocSinhVien.Service.AssemblyInfo.cs
+D:\1. DATN_PhungThiTien\2_SanPham\PhungThiTienDATN2023\QlLopHocSinhVien.Service\obj\Debug\net7.0\QlLopHocSinhVien.Service.csproj.CoreCompileInputs.cache
+D:\1. DATN_PhungThiTien\2_SanPham\PhungThiTienDATN2023\QlLopHocSinhVien.Service\obj\Debug\net7.0\QlLopHocSinhVien.Service.csproj.CopyComplete
+D:\1. DATN_PhungThiTien\2_SanPham\PhungThiTienDATN2023\QlLopHocSinhVien.Service\obj\Debug\net7.0\QlLopHocSinhVien.Service.dll
+D:\1. DATN_PhungThiTien\2_SanPham\PhungThiTienDATN2023\QlLopHocSinhVien.Service\obj\Debug\net7.0\refint\QlLopHocSinhVien.Service.dll
+D:\1. DATN_PhungThiTien\2_SanPham\PhungThiTienDATN2023\QlLopHocSinhVien.Service\obj\Debug\net7.0\QlLopHocSinhVien.Service.pdb
+D:\1. DATN_PhungThiTien\2_SanPham\PhungThiTienDATN2023\QlLopHocSinhVien.Service\obj\Debug\net7.0\ref\QlLopHocSinhVien.Service.dll

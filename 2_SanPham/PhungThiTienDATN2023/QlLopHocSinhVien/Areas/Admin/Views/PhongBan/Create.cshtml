@@ -1,0 +1,44 @@
+﻿@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+@model QlLopHocSinhVien.Model.Entities.PhongBan
+@{
+    //ViewData["Title"] = "Create";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+<div class="col-12">
+    <div class="card mb-4">
+        <h5 class="card-header">@ViewBag.Title</h5>
+        <div class="card-body">
+            <form action="Create" method="post">
+                <p class="text-danger">@ViewBag.Message</p>
+                <div class="row">
+                    <div class="mb-3 col-12 col-md-6 col-lg-6">
+                        <label class="form-label">Mã phòng ban</label>
+                        <input type="text" class="form-control form-control-sm" name="MaPb" required>
+                    </div>
+
+                    <div class="mb-3 col-12 col-md-6 col-lg-6">
+                        <label class="form-label">Tên phòng ban</label>
+                        <input type="text" class="form-control form-control-sm" name="TenPb" required>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="mb-3 col-12 col-md-6 col-lg-6">
+                        <label class="form-label">Nội dung</label>
+                        <textarea type="text" class="form-control form-control-sm" name="NoiDung"></textarea>
+                    </div>
+
+                    <div class="mb-3 col-12 col-md-6 col-lg-6">
+                        <label class="form-label">Mô tả</label>
+                        <textarea type="text" class="form-control form-control-sm" name="MoTa"></textarea>
+                    </div>
+                </div>
+
+                <button type="submit" class="btn btn-primary btn-sm">Lưu</button>
+                <a class="btn btn-danger btn-sm" asp-action="Index">Hủy</a>
+            </form>
+
+        </div>
+    </div>
+</div>

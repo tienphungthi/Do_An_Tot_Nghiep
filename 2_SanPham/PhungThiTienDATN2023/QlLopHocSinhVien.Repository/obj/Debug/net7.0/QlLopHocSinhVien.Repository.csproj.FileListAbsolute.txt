@@ -1,0 +1,15 @@
+D:\1. DATN_PhungThiTien\2_SanPham\PhungThiTienDATN2023\QlLopHocSinhVien.Repository\bin\Debug\net7.0\QlLopHocSinhVien.Repository.deps.json
+D:\1. DATN_PhungThiTien\2_SanPham\PhungThiTienDATN2023\QlLopHocSinhVien.Repository\bin\Debug\net7.0\QlLopHocSinhVien.Repository.dll
+D:\1. DATN_PhungThiTien\2_SanPham\PhungThiTienDATN2023\QlLopHocSinhVien.Repository\bin\Debug\net7.0\QlLopHocSinhVien.Repository.pdb
+D:\1. DATN_PhungThiTien\2_SanPham\PhungThiTienDATN2023\QlLopHocSinhVien.Repository\bin\Debug\net7.0\QlLopHocSinhVien.Model.dll
+D:\1. DATN_PhungThiTien\2_SanPham\PhungThiTienDATN2023\QlLopHocSinhVien.Repository\bin\Debug\net7.0\QlLopHocSinhVien.Model.pdb
+D:\1. DATN_PhungThiTien\2_SanPham\PhungThiTienDATN2023\QlLopHocSinhVien.Repository\obj\Debug\net7.0\QlLopHocSinhVien.Repository.csproj.AssemblyReference.cache
+D:\1. DATN_PhungThiTien\2_SanPham\PhungThiTienDATN2023\QlLopHocSinhVien.Repository\obj\Debug\net7.0\QlLopHocSinhVien.Repository.GeneratedMSBuildEditorConfig.editorconfig
+D:\1. DATN_PhungThiTien\2_SanPham\PhungThiTienDATN2023\QlLopHocSinhVien.Repository\obj\Debug\net7.0\QlLopHocSinhVien.Repository.AssemblyInfoInputs.cache
+D:\1. DATN_PhungThiTien\2_SanPham\PhungThiTienDATN2023\QlLopHocSinhVien.Repository\obj\Debug\net7.0\QlLopHocSinhVien.Repository.AssemblyInfo.cs
+D:\1. DATN_PhungThiTien\2_SanPham\PhungThiTienDATN2023\QlLopHocSinhVien.Repository\obj\Debug\net7.0\QlLopHocSinhVien.Repository.csproj.CoreCompileInputs.cache
+D:\1. DATN_PhungThiTien\2_SanPham\PhungThiTienDATN2023\QlLopHocSinhVien.Repository\obj\Debug\net7.0\QlLopHocSinhVien.Repository.csproj.CopyComplete
+D:\1. DATN_PhungThiTien\2_SanPham\PhungThiTienDATN2023\QlLopHocSinhVien.Repository\obj\Debug\net7.0\QlLopHocSinhVien.Repository.dll
+D:\1. DATN_PhungThiTien\2_SanPham\PhungThiTienDATN2023\QlLopHocSinhVien.Repository\obj\Debug\net7.0\refint\QlLopHocSinhVien.Repository.dll
+D:\1. DATN_PhungThiTien\2_SanPham\PhungThiTienDATN2023\QlLopHocSinhVien.Repository\obj\Debug\net7.0\QlLopHocSinhVien.Repository.pdb
+D:\1. DATN_PhungThiTien\2_SanPham\PhungThiTienDATN2023\QlLopHocSinhVien.Repository\obj\Debug\net7.0\ref\QlLopHocSinhVien.Repository.dll

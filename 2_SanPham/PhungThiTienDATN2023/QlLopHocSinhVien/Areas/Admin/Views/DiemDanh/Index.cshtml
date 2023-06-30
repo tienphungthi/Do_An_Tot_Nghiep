@@ -1,0 +1,231 @@
+﻿@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+
+@{
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+<div class="card">
+    <h5 class="card-header">ĐIỂM DANH</h5>
+
+    <div class="card-body p-1">
+        <div class="row">
+            <div class="col-md-2">
+                <label class="form-label">Ngày</label>
+                <input type="date" class="form-control form-control-sm" value="@DateTime.Now.ToString("yyyy-MM-dd")" id="dtp_date">
+            </div>
+
+            <div class="col-md-3">
+                <label class="form-label">Lớp</label>
+                <div class="input-group">
+                    <select class="form-select form-select-sm" asp-items="@ViewBag.LopHoc" id="cbo_class" onchange="return GetAll();">
+                        <option value="">-Chọn lớp--</option>
+                    </select>
+                    <button type="submit" class="btn btn-success btn-sm p-1" onclick="return GetAll();"><i class='bx bx-search-alt-2'></i></button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="table-responsive text-nowrap">
+        <table class="table table-hover table-bordered">
+            <thead>
+                <tr class="text-center">
+                    <th>Mã học viên</th>
+                    <th>Tên học viên</th>
+                    <th>Thời gian vào</th>
+                    <th>Thời gian ra</th>
+                    <th>Ghi chú</th>
+                    <th>Checkin</th>
+                    <th>Checkout</th>
+                </tr>
+            </thead>
+            <tbody class="table-border-bottom-0 tbody">
+                @*<tr>
+                <td>
+                <div class="form-check d-flex justify-content-center">
+                <input class="form-check-input" type="checkbox" id="chk_chekin_HV01">
+                </div>
+                </td>
+                <td>
+                <div class="form-check d-flex justify-content-center">
+                <input class="form-check-input" type="checkbox" id="chk_chekin_HV01">
+                </div>
+                </td>
+                <td>HV01</td>
+                <td>Phùng Thị Tiến</td>
+                <td>
+                <input type="datetime" class="form-control form-control-sm" value="@DateTime.Now.ToString("dd/MM/yyyy HH:mm")" disabled>
+                <input type="hidden" class="form-control form-control-sm" id="dtp_datetimcheckin_HV01" value="@DateTime.Now.ToString("yyyy-MM-ddTHH:mm")" disabled>
+                </td>
+                <td>
+                <input type="datetime" class="form-control form-control-sm" value="@DateTime.Now.ToString("dd/MM/yyyy HH:mm")" disabled>
+                <input type="hidden" class="form-control form-control-sm" id="dtp_datetimcheckout_HV01" value="@DateTime.Now.ToString("yyyy-MM-ddTHH:mm")" disabled>
+                </td>
+                <td>
+                <textarea class="form-control p-1" id="txt_note_HV01" style="height:28px"></textarea>
+                </td>
+
+                </tr>*@
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<script>
+
+    function GetAll() {
+        $.ajax({
+            url: '/Admin/DiemDanh/GetAll',
+            type: "GET",
+            contentType: "application/json;charset=utf-8",
+            dataType: "json",
+            data: {
+                date: $('#dtp_date').val(),
+                malop: $('#cbo_class').val()
+            },
+            success: function (data) {
+                console.log(data);
+                var html = '';
+                $.each(data, function (key, item) {
+
+                    var checkedCheckIn = item.ThoiGianVao == '' ? '' : 'checked';
+                    var checkedCheckOut = item.ThoiGianRa == '' ? '' : 'checked';
+                    html += `<tr>
+
+                                    <td>${item.MaHv}</td>
+                                    <td>${item.HoTen}</td>
+                                    <td>
+                                        <input type="datetime" class="form-control form-control-sm" id="dtp_datetimcheckin_${item.MaHv}" value="${item.ThoiGianVao}" disabled>
+                                    </td>
+                                    <td>
+                                        <input type="datetime" class="form-control form-control-sm" id="dtp_datetimcheckout_${item.MaHv}" value="${item.ThoiGianRa}" disabled>
+                                    </td>
+                                    <td>
+                                        <textarea class="form-control p-1" id="txt_note_${item.MaHv}" style="height:28px">${item.MoTa}</textarea>
+                                    </td>
+                                        <td>
+                                            <div class="form-check d-flex justify-content-center">
+                                                <input class="form-check-input" type="checkbox" id="chk_chekin_${item.MaHv}" ${checkedCheckIn}
+                                                        onclick="return onClickCheckin('#chk_chekin_${item.MaHv}','${item.MaDd}','${item.MaHv}','#dtp_datetimcheckin_${item.MaHv}','${item.ThoiGianRa}','#txt_note_${item.MaHv}')">
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="form-check d-flex justify-content-center">
+                                                <input class="form-check-input" type="checkbox" id="chk_chekout_${item.MaHv}" ${checkedCheckOut}
+                                                        onclick="return onClickCheckout('#chk_chekout_${item.MaHv}','${item.MaDd}','${item.MaHv}','${item.ThoiGianVao}','#dtp_datetimcheckout_${item.MaHv}','#txt_note_${item.MaHv}')">
+                                            </div>
+                                        </td>
+                                </tr>`;
+
+                });
+                $('.tbody').html(html);
+            },
+            error: function (errorMessage) {
+                alert(errorMessage.responseText);
+            }
+        })
+    }
+
+
+    function onClickCheckin(idCheckbox, id, code, checkin, checkout, note) {
+        var datetime = new Date();
+
+        var year = datetime.getFullYear();
+        var month = datetime.getMonth() + 1 < 10 ? "0" + (datetime.getMonth() + 1) : datetime.getMonth() + 1;
+        var day = datetime.getDate() < 10 ? "0" + datetime.getDate() : datetime.getDate();
+        var hours = datetime.getHours() < 10 ? "0" + datetime.getHours() : datetime.getHours();
+        var minutes = datetime.getMinutes() < 10 ? "0" + datetime.getMinutes() : datetime.getMinutes();
+
+        var datevalue = `${year}-${month}-${day}T${hours}:${minutes}`;
+        
+        var datevalueOut = '';
+
+        if (checkout != '') {
+            var dateChecout = checkout.split(' ')[0];
+            var timeChecout = checkout.split(' ')[1];
+
+            var dayOut = dateChecout.split('/')[0];
+            var monthOut = dateChecout.split('/')[1];
+            var yearOut = dateChecout.split('/')[2];
+
+            datevalueOut = `${yearOut}-${monthOut}-${dayOut}T${timeChecout}`;
+        }
+
+        
+
+        var isCheck = $(idCheckbox).is(":checked");
+
+        var obj = {
+            MaDd: id,
+            MaHv: code,
+            ThoiGian: $('#dtp_date').val(),
+            ThoiGianVao: isCheck == true ? datevalue : null,
+            ThoiGianRa: datevalueOut == '' ? null : datevalueOut,
+            MoTa: $(note).val()
+        }
+
+        $.ajax({
+            url: '/Admin/DiemDanh/Create',
+            type: "POST",
+            contentType: "application/json;charset=utf-8",
+            dataType: "json",
+            data: JSON.stringify(obj),
+            success: function (data) {
+                GetAll();
+            },
+            error: function (errorMessage) {
+                alert(errorMessage.responseText);
+            }
+        })
+
+    }
+
+    function onClickCheckout(idCheckbox, id, code, checkin, checkout, note) {
+        var datetime = new Date();
+
+        var year = datetime.getFullYear();
+        var month = datetime.getMonth() + 1 < 10 ? "0" + (datetime.getMonth() + 1) : datetime.getMonth() + 1;
+        var day = datetime.getDate() < 10 ? "0" + datetime.getDate() : datetime.getDate();
+        var hours = datetime.getHours() < 10 ? "0" + datetime.getHours() : datetime.getHours();
+        var minutes = datetime.getMinutes() < 10 ? "0" + datetime.getMinutes() : datetime.getMinutes();
+
+        var datevalue = `${year}-${month}-${day}T${hours}:${minutes}`;
+
+        var datevalueIn = '';
+
+        if (checkin != '') {
+            var dateChecin = checkin.split(' ')[0];
+            var timeChecint = checkin.split(' ')[1];
+
+            var dayIn = dateChecin.split('/')[0];
+            var monthIn = dateChecin.split('/')[1];
+            var yearIn = dateChecin.split('/')[2];
+
+            datevalueIn = `${yearIn}-${monthIn}-${dayIn}T${timeChecint}`;
+        }
+
+        var isCheck = $(idCheckbox).is(":checked");
+
+        var obj = {
+            MaDd: id,
+            MaHv: code,
+            ThoiGian: $('#dtp_date').val(),
+            ThoiGianVao: datevalueIn == '' ? null : datevalueIn,
+            ThoiGianRa: isCheck == true ? datevalue : null,
+            MoTa: $(note).val()
+        }
+
+        $.ajax({
+            url: '/Admin/DiemDanh/Create',
+            type: "POST",
+            contentType: "application/json;charset=utf-8",
+            dataType: "json",
+            data: JSON.stringify(obj),
+            success: function (data) {
+                GetAll();
+            },
+            error: function (errorMessage) {
+                alert(errorMessage.responseText);
+            }
+        })
+    }
+</script>

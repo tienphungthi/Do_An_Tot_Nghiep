@@ -1,0 +1,37 @@
+﻿@model QlLopHocSinhVien.Model.Entities.PhongBan
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<form href="/PhongBan/Edit" method="post">
+    <div class="form-group">
+        <lable asp-for="MaPb">Mã phòng ban</lable>
+        <input asp-for="MaPb" class="form-control" />
+
+        <span asp-validation-for="MaPb" class="text-danger"></span>
+
+    </div>
+    <div class="form-group">
+        <lable asp-for="TenPb">Tên phòng ban</lable>
+        <input asp-for="TenPb" class="form-control" />
+        <span asp-validation-for="TenPb" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <lable asp-for="NoiDung">Nội dung</lable>
+        <input asp-for="NoiDung" class="form-control" />
+        <span asp-validation-for="NoiDung" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <lable asp-for="MoTa">Mô tả</lable>
+        <input asp-for="MoTa" class="form-control" />
+        <span asp-validation-for="MoTa" class="text-danger"></span>
+    </div>
+    
+
+    <div class="form-group">
+        <button class="btn btn-success">Lưu</button>
+    </div>
+
+
+</form>

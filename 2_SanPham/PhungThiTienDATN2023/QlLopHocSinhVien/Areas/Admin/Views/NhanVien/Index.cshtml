@@ -1,0 +1,109 @@
+﻿@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+@model IEnumerable<QlLopHocSinhVien.Model.Entities.NhanVien>
+
+@{
+    //ViewData["Title"] = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+<div class="card">
+    <h5 class="card-header">DANH SÁCH @ViewBag.Title</h5>
+
+    <div class="card-body p-1">
+        <form asp-action="Index" method="get">
+            <div class="row">
+                <div class="col-md-2">
+                    <div class="col-12">
+                        <label class="form-label">Show entries</label>
+                        <input type="number" name="pagesize" class="form-control form-control-sm" value="10" min="10" step="5" onkeydown="return false;">
+                    </div>
+                </div>
+                <div class="col-md-10">
+                    <div class="row">
+                        <div class="col-12 col-md-3 col-lg-3">
+                            <label class="form-label">Phòng ban</label>
+                            <select class="form-select form-select-sm" name="department" asp-items="@ViewBag.Department">
+                                <option value="">Tất cả</option>
+                            </select>
+                        </div>
+
+                        <div class="col-12 col-md-3 col-lg-3">
+                            <label class="form-label">Chức vụ</label>
+                            <select class="form-select form-select-sm" name="position" asp-items="@ViewBag.Position">
+                                <option value="">Tất cả</option>
+                            </select>
+                        </div>
+                        <div class="col-12 col-md-3 col-lg-3">
+                            <label class="form-label">Trạng thái</label>
+                            <select class="form-select form-select-sm" name="status">
+                                <option value="">Tất cả</option>
+                                <option value="1">Đang công tác</option>
+                                <option value="2">Thai sản</option>
+                                <option value="3">Nghỉ việc</option>
+                            </select>
+                        </div>
+
+                        <div class="col-12 col-md-3 col-lg-3">
+                            <label class="form-label">Từ khóa</label>
+                            <div class="input-group">
+                                <input type="text" name="keyword" class="form-control form-control-sm">
+                                <button type="submit" class="btn btn-success btn-sm p-1"><i class='bx bx-search-alt-2'></i></button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+    <div class="table-responsive text-nowrap">
+        <table class="table table-hover table-bordered">
+            <thead>
+                <tr class="text-center">
+                    <th><a class="btn btn-success btn-sm p-1" href="/Admin/NhanVien/Create"><i class='bx bx-plus-medical'></i></a></th>
+                    <th>Mã nhân viên</th>
+                    <th>Tên nhân viên</th>
+                    <th>SĐT</th>
+                    <th>Gmail</th>
+                    <th>Bộ phận</th>
+                    <th>Chức vụ</th>
+                    <th>Trạng thái</th>
+                    <th>Tài khoản</th>
+                </tr>
+            </thead>
+            <tbody class="table-border-bottom-0">
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>
+                            <div class="d-flex">
+                                <a class="btn btn-primary btn-sm p-1 mx-1" href="/Admin/NhanVien/Edit/@item.MaNv" title="Sửa"><i class="bx bx-edit-alt"></i></a>
+                                <a class="btn btn-danger btn-sm p-1" href="/Admin/NhanVien/Delete/@item.MaNv" title="Xóa"><i class="bx bx-trash"></i></a>
+                            </div>
+                        </td>
+                        <td>@item.MaNv</td>
+                        <td>@item.Ten</td>
+                        <td>@item.Sdt</td>
+                        <td>@item.Gmail</td>
+                        <td>@item.MaPb</td>
+                        <td>@item.MaCv</td>
+                        <td>
+                            @if (item.TrangThaiNhanSu == "1")
+                            {
+                                <p class="text-success m-0">Đang công tác</p>
+                            }
+                            else if (item.TrangThaiNhanSu == "2")
+                            {
+                                <p class="text-warning m-0">Thai sản</p>
+                            }
+                            else
+                            {
+                                <p class="text-danger m-0">Nghỉ việc</p>
+                            }
+                        </td>
+                        <td>@item.MaTaiKhoan</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>

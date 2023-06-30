@@ -1,0 +1,41 @@
+﻿@model QlLopHocSinhVien.Model.Entities.ChuongTrinhHoc
+@{
+    ViewData["Title"] = "Create";
+}
+
+<form href="/ChuongTrinhHoc/Create" method="post">
+    <div class="form-group">
+        <lable asp-for="MaCth">Mã chương trình học</lable>
+        <input asp-for="MaCth" class="form-control" />
+
+        <span asp-validation-for="MaCth" class="text-danger"></span>
+
+    </div>
+    <div class="form-group">
+        <lable asp-for="TieuDe">Tiêu đề</lable>
+        <input asp-for="TieuDe" class="form-control" />
+        <span asp-validation-for="TieuDe" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <lable asp-for="NoiDung">Nội dung</lable>
+        <input asp-for="NoiDung" class="form-control" />
+        <span asp-validation-for="NoiDung" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <lable asp-for="TrangThai">Trạng thái</lable>
+        <input asp-for="TrangThai" class="form-control" />
+        <span asp-validation-for="TrangThai" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <lable asp-for="TongSoBuoi">Tổng số buổi</lable>
+        <input asp-for="TongSoBuoi" class="form-control" />
+        <span asp-validation-for="TongSoBuoi" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <button class="btn btn-success">Lưu</button>
+    </div>
+
+    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+</form>

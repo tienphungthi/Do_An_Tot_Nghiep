@@ -1,0 +1,34 @@
+﻿@model QlLopHocSinhVien.Model.Entities.ChucVu
+@{
+    ViewData["Title"] = "Create";
+}
+
+<form href="/ChucVu/Create" method="post">
+    <div class="form-group">
+        <lable asp-for="MaCv">Mã chức vụ</lable>
+        <input asp-for="MaCv" class="form-control" />
+
+        <span asp-validation-for="MaCv" class="text-danger"></span>
+
+    </div>
+    <div class="form-group">
+        <lable asp-for="TenCv">Tên chức vụ</lable>
+        <input asp-for="TenCv" class="form-control" />
+        <span asp-validation-for="TenCv" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <lable asp-for="MoTa">Mô tả</lable>
+        <input asp-for="MoTa" class="form-control" />
+        <span asp-validation-for="MoTa" class="text-danger"></span>
+    </div>
+    
+
+
+    <div class="form-group">
+        <button class="btn btn-success">Lưu</button>
+    </div>
+
+    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+</form>

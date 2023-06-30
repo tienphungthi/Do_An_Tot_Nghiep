@@ -1,0 +1,67 @@
+﻿@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+@model List<QlLopHocSinhVien.Model.Entities.KhoaHoc>
+
+@{
+    //ViewData["Title"] = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+<div class="card">
+    <h5 class="card-header">DANH SÁCH @ViewBag.Title</h5>
+
+    <div class="card-body p-1">
+        <form asp-action="Index" method="get">
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="col-md-3">
+                        <label class="form-label">Show entries</label>
+                        <input type="number" name="pagesize" class="form-control form-control-sm" value="10" min="10" step="5" onkeydown="return false;">
+                    </div>
+                </div>
+
+                <div class="col-md-6">
+                    <div class="row">
+                        <div class="col-12">
+                            <label class="form-label">Từ khóa</label>
+                            <div class="input-group">
+                                <input type="text" name="keyword" class="form-control form-control-sm">
+                                <button type="submit" class="btn btn-success btn-sm p-1"><i class='bx bx-search-alt-2'></i></button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+    <div class="table-responsive text-nowrap">
+        <table class="table table-hover table-bordered">
+            <thead>
+                <tr class="text-center">
+                    <th><a class="btn btn-success btn-sm p-1" asp-action="Create"><i class='bx bx-plus-medical'></i></a></th>
+                    <th>Mã khóa học</th>
+                    <th>Ảnh</th>
+                    <th>Tiêu đề</th>
+                    <th>Nội dung</th>
+                </tr>
+            </thead>
+            <tbody class="table-border-bottom-0">
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>
+                            <div class="d-flex">
+                                <a class="btn btn-primary btn-sm p-1 mx-1" asp-action="Edit" asp-route-id="@item.MaKh" title="Sửa"><i class="bx bx-edit-alt"></i></a>
+                                <a class="btn btn-danger btn-sm p-1" asp-action="Delete" asp-route-id="@item.MaKh" title="Xóa"><i class="bx bx-trash"></i></a>
+                            </div>
+                        </td>
+                        <td>@item.MaKh</td>
+                        <td>@item.Anh</td>
+                        <td style="white-space:pre-wrap;">@item.TieuDe</td>
+                        <td style="white-space:pre-wrap;">@item.NoiDung</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
+

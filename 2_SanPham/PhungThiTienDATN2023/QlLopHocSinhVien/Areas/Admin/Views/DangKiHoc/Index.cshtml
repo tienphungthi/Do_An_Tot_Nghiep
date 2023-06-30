@@ -1,0 +1,65 @@
+﻿@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+@model IEnumerable<QlLopHocSinhVien.Model.Entities.DangKiHoc>
+@{
+    //ViewData["Title"] = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+<div class="card">
+    <h5 class="card-header">DANH SÁCH HỌC VIÊN ĐĂNG KÍ HỌC</h5>
+
+    <div class="card-body p-1">
+        <form asp-action="Index" method="get">
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="col-md-3">
+                        <label class="form-label">Show entries</label>
+                        <input type="number" name="pagesize" class="form-control form-control-sm" value="10" min="10" step="5" onkeydown="return false;">
+                    </div>
+                </div>
+
+                <div class="col-md-6">
+                    <div class="row">
+                        <div class="col-12">
+                            <label class="form-label">Từ khóa</label>
+                            <div class="input-group">
+                                <input type="text" name="keyword" class="form-control form-control-sm">
+                                <button type="submit" class="btn btn-success btn-sm p-1"><i class='bx bx-search-alt-2'></i></button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+    <div class="table-responsive text-nowrap">
+        <table class="table table-hover table-bordered">
+            <thead>
+                <tr class="text-center">
+                   
+                    <th>Mã</th>
+                    <th>Họ tên</th>
+                    <th>SĐT</th>
+                    <th>Email</th>
+                    <th>Trường học</th>
+                    <th>Địa chỉ</th>
+                </tr>
+            </thead>
+            <tbody class="table-border-bottom-0">
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        
+                        <td>@item.Ma</td>
+                        <td>@item.HoTen</td>
+                        <td>@item.DienThoai</td>
+                        <td>@item.TruongHoc</td>
+                        <td>@item.Email</td>
+                        <td style="white-space:pre-wrap;">@item.DiaChi</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
+

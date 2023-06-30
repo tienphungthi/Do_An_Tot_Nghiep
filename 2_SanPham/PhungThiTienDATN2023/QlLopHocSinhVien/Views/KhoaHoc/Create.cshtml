@@ -1,0 +1,37 @@
+﻿@model QlLopHocSinhVien.Model.Entities.KhoaHoc
+@{
+    ViewData["Title"] = "Create";
+}
+
+<form href="/KhoaHoc/Create" method="post">
+    <div class="form-group">
+        <lable asp-for="MaCth">Mã khóa học</lable>
+        <input asp-for="MaKh" class="form-control" />
+
+        <span asp-validation-for="MaKh" class="text-danger"></span>
+
+    </div>
+    <div class="form-group">
+        <lable asp-for="Anh">Hình ảnh</lable>
+        <input asp-for="Anh" class="form-control" />
+        <span asp-validation-for="Anh" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <lable asp-for="TieuDe">Tiêu đề</lable>
+        <input asp-for="TieuDe" class="form-control" />
+        <span asp-validation-for="TieuDe" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <lable asp-for="NoiDung">Nội dung</lable>
+        <input asp-for="NoiDung" class="form-control" />
+        <span asp-validation-for="NoiDung" class="text-danger"></span>
+    </div>
+    
+
+    <div class="form-group">
+        <button class="btn btn-success">Lưu</button>
+    </div>
+
+    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+</form>

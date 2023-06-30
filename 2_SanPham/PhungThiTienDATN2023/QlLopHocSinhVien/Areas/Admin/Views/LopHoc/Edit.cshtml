@@ -1,0 +1,85 @@
+﻿@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+@model QlLopHocSinhVien.Model.Entities.LopHoc
+
+@{
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+<div class="col-12">
+    <div class="card mb-4">
+        <h5 class="card-header">@ViewBag.Title</h5>
+        <div class="card-body">
+            <form action="Edit" method="post">
+                <p class="text-danger">@ViewBag.Message</p>
+                <div class="row">
+                    <div class="mb-3 col-12 col-md-3 col-lg-3">
+                        <label class="form-label">Mã lớp <span class="text-danger">(*)</span></label>
+                        <input type="text" class="form-control form-control-sm" value="@Model.MaLh" disabled>
+                        <input type="hidden" class="form-control form-control-sm" name="malh" value="@Model.MaLh" required>
+                    </div>
+
+                    <div class="mb-3 col-12 col-md-6 col-lg-6">
+                        <label class="form-label">Tên lớp <span class="text-danger">(*)</span></label>
+                        <input type="text" class="form-control form-control-sm" name="tenlop" value="@Model.TenLop" required>
+                    </div>
+                    <div class="mb-3 col-12 col-md-3 col-lg-3">
+                        <label class="form-label">Sĩ số <span class="text-danger">(*)</span></label>
+                        <input type="number" class="form-control form-control-sm" name="siso" value="@Model.SiSo" min="10" max="50" required>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="mb-3 col-12 col-md-3 col-lg-3">
+                        <label class="form-label">Cơ sở <span class="text-danger">(*)</span></label>
+                        <select class="form-select form-select-sm" name="macs" asp-items="@ViewBag.CoSo" required>
+                            <option value="">--Chọn cơ sở--</option>
+                        </select>
+                    </div>
+
+                    <div class="mb-3 col-12 col-md-3 col-lg-3">
+                        <label class="form-label">Nhân viên <span class="text-danger">(*)</span></label>
+                        <select class="form-select form-select-sm" name="manv" asp-items="@ViewBag.NhanVien" required>
+                            <option value="">--Chọn nhân viên--</option>
+                        </select>
+                    </div>
+
+                    <div class="mb-3 col-12 col-md-3 col-lg-3">
+                        <label class="form-label">Khóa học <span class="text-danger">(*)</span></label>
+                        <select class="form-select form-select-sm" name="makh" asp-items="@ViewBag.KhoaHoc" required>
+                            <option value="">--Chọn khóa học--</option>
+                        </select>
+                    </div>
+
+                    <div class="mb-3 col-12 col-md-3 col-lg-3">
+                        <label class="form-label">Chương trình học <span class="text-danger">(*)</span></label>
+                        <select class="form-select form-select-sm" name="machuongtrinhhoc" asp-items="@ViewBag.ChuongTrinhHoc" required>
+                            <option value="">--Chọn chương trình học--</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="mb-3 col-12 col-md-4 col-lg-4">
+                        <label class="form-label">Ngày bắt đầu <span class="text-danger">(*)</span></label>
+                        <input type="date" class="form-control form-control-sm" name="ngaybatdau" value="@Model.NgayBatDau.Value.ToString("yyyy-MM-dd")" required>
+                    </div>
+
+                    <div class="mb-3 col-12 col-md-4 col-lg-4">
+                        <label class="form-label">Ngày kết thúc <span class="text-danger">(*)</span></label>
+                        <input type="date" class="form-control form-control-sm" name="ngayketthuc" value="@Model.NgayKetThuc.Value.ToString("yyyy-MM-dd")" required>
+                    </div>
+
+                    <div class="mb-3 col-12 col-md-4 col-lg-4">
+                        <label class="form-label">Doanh thu dự kiến</label>
+                        <input type="text" class="form-control form-control-sm" name="doanhthudukien" value="@Model.DoanhThuDuKien">
+                    </div>
+                </div>
+
+                <button type="submit" class="btn btn-primary btn-sm">Lưu</button>
+                <a class="btn btn-danger btn-sm" asp-action="Index">Hủy</a>
+            </form>
+
+        </div>
+    </div>
+</div>
+

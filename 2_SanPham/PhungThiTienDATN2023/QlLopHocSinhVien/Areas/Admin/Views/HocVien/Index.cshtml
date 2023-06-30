@@ -1,0 +1,123 @@
+﻿@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+@model List<QlLopHocSinhVien.Model.Entities.HocVien>
+
+@{
+    //ViewData["Title"] = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+<div class="card">
+    <h5 class="card-header">DANH SÁCH @ViewBag.Title</h5>
+
+    <div class="card-body p-1">
+        <form asp-action="Index" method="get">
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="col-md-3">
+                        <label class="form-label">Show entries</label>
+                        <input type="number" name="pagesize" class="form-control form-control-sm" value="10" min="10" step="5" onkeydown="return false;">
+                    </div>
+                </div>
+
+                <div class="col-md-6">
+                    <div class="row">
+                        <div class="col-12 col-md-4 col-lg-4">
+                            <label class="form-label">Lớp học</label>
+                            <select class="form-select form-select-sm" name="lophoc" asp-items="@ViewBag.LopHoc">
+                                <option value="">Tất cả</option>
+                            </select>
+                        </div>
+                        <div class="col-12 col-md-8 col-lg-8">
+                            <label class="form-label">Từ khóa</label>
+                            <div class="input-group">
+                                <input type="text" name="keyword" class="form-control form-control-sm" value="@ViewBag.Keywords">
+                                <button type="submit" class="btn btn-success btn-sm p-1"><i class='bx bx-search-alt-2'></i></button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+    <div class="table-responsive text-nowrap">
+        <table class="table table-hover table-bordered">
+            <thead>
+                <tr class="text-center">
+                    <th><a class="btn btn-success btn-sm p-1" asp-action="Create"><i class='bx bx-plus-medical'></i></a></th>
+                    <th>Mã</th>
+                    <th>Lớp học</th>
+                    <th>Họ tên</th>
+                    <th>Ảnh</th>
+                    <th>SĐT</th>
+                    <th>Gmail</th>
+                    <th>Hoạt động</th>
+                    <th>Tài khoản</th>
+                    <th>Giới tính</th>
+                    <th>Ngày sinh</th>
+                    <th>Trường học</th>
+                    <th>Trình độ</th>
+                    <th>Địa chỉ</th>
+                    <th>Thành phố</th>
+                    <th>Quận</th>
+                    <th>Facebook</th>
+                    <th>Ngày tham gia</th>
+                    <th>Nghề nhiệp</th>
+                </tr>
+            </thead>
+            <tbody class="table-border-bottom-0">
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td class="text-center">
+                            <div class="d-flex">
+                                <a class="btn btn-primary btn-sm p-1 mx-1" asp-action="Edit" asp-route-id="@item.MaHv" title="Sửa"><i class="bx bx-edit-alt"></i></a>
+                                <a class="btn btn-danger btn-sm p-1" asp-action="Delete" asp-route-id="@item.MaHv" title="Xóa"><i class="bx bx-trash"></i></a>
+                            </div>
+                        </td>
+                        <td>@item.MaHv</td>
+                        <td>@item.MaLh</td>
+                        <td>@item.HoTen</td>
+                        <td>@item.Anh</td>
+                        <td>@item.Sdt</td>
+                        <td>@item.Gmail</td>
+                        <td>
+                            @if (item.HoatDong == "1")
+                            {
+                                <p class="text-success m-0">Hoạt động</p>
+                            }
+                            else
+                            {
+                                <p class="text-danger m-0">Dừng hoạt động</p>
+                            }
+                        </td>
+                        <td>@item.MaTaiKhoan</td>
+                        <td>
+                            @if (item.GioiTinh == "1")
+                            {
+                                <p class="text-success m-0">Nam</p>
+                            }
+                            else if (item.GioiTinh == "2")
+                            {
+                                <p class="text-warning m-0">Nữ</p>
+                            }
+                            else
+                            {
+                                <p class="text-danger m-0">Khác</p>
+                            }
+                        </td>
+                        <td>@item.NgaySinh</td>
+                        <td>@item.TruongHoc</td>
+                        <td>@item.TrinhDoChuyenMon</td>
+                        <td>@item.DiaChi</td>
+                        <td>@item.ThanhPho</td>
+                        <td>@item.Quan</td>
+                        <td>@item.Facebook</td>
+                        <td>@item.NgayThamGia</td>
+                        <td>@item.NgheNghiep</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
+

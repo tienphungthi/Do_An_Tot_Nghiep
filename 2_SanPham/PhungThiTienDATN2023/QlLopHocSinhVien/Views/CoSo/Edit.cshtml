@@ -1,0 +1,31 @@
+﻿@model QlLopHocSinhVien.Model.Entities.CoSo
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<form href="/CoSo/Edit" method="post">
+    <div class="form-group">
+        <lable asp-for="MaCs">Mã cơ sở</lable>
+        <input asp-for="MaCs" value="@Model.MaCs" class="form-control" />
+
+        <span asp-validation-for="MaCs" class="text-danger"></span>
+
+    </div>
+    <div class="form-group">
+        <lable asp-for="TenCs">Tên cơ sở</lable>
+        <input asp-for="TenCs" value="@Model.TenCs" class="form-control" />
+        <span asp-validation-for="TenCs" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <lable asp-for="TieuDe">Địa chỉ</lable>
+        <input asp-for="DiaChi" value="@Model.DiaChi" class="form-control" />
+        <span asp-validation-for="DiaChi" class="text-danger"></span>
+    </div>
+    
+    <div class="form-group">
+        <button class="btn btn-success">Lưu</button>
+    </div>
+
+
+</form>

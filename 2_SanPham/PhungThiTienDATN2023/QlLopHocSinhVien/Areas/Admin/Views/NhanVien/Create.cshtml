@@ -1,0 +1,68 @@
+﻿@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+
+@{
+    //ViewData["Title"] = "Create";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+<div class="col-12">
+    <div class="card mb-4">
+        <h5 class="card-header">@ViewBag.Title</h5>
+        <div class="card-body">
+            <form action="Create" method="post">
+                <p class="text-danger">@ViewBag.Message</p>
+                <div class="row">
+                    <div class="mb-3 col-12 col-md-6 col-lg-6">
+                        <label class="form-label">Mã nhân viên</label>
+                        <input type="text" class="form-control form-control-sm" name="MaNV" required>
+                    </div>
+
+                    <div class="mb-3 col-12 col-md-6 col-lg-6">
+                        <label class="form-label">Tên nhân viên</label>
+                        <input type="text" class="form-control form-control-sm" name="Ten" required>
+                    </div>
+                </div>
+
+               <div class="row">
+                    <div class="mb-3 col-12 col-md-6 col-lg-6">
+                        <label class="form-label">SĐT</label>
+                        <input type="text" class="form-control form-control-sm" name="SDT" required>
+                    </div>
+
+                    <div class="mb-3 col-12 col-md-6 col-lg-6">
+                        <label class="form-label">Gmail</label>
+                        <input type="email" class="form-control form-control-sm" name="Gmail">
+                    </div>
+               </div>
+
+               <div class="row">
+                    <div class="mb-3 col-12 col-md-6 col-lg-6">
+                        <label class="form-label">Phòng ban</label>
+                        <div class="input-group">
+                            <select class="form-select form-select-sm" name="MaPB" asp-items="@ViewBag.PhongBan">
+                                <option value="">--Chọn phòng ban--</option>
+                            </select>
+                            <a class="btn btn-success btn-sm p-1" href="/Admin/PhongBan/Create"><i class='bx bx-plus-medical'></i></a>
+                        </div>
+                    </div>
+
+                    <div class="mb-3 col-12 col-md-6 col-lg-6">
+                        <label class="form-label">Chức vụ</label>
+                        <div class="input-group">
+                            <select class="form-select form-select-sm" name="macv" asp-items="@ViewBag.ChucVu">
+                                <option value="">--Chọn chức vụ--</option>
+                            </select>
+                            <a class="btn btn-success btn-sm p-1" href="/Admin/ChucVu/Create"><i class='bx bx-plus-medical'></i></a>
+                        </div>
+                        
+                    </div>
+               </div>
+
+                <button type="submit" class="btn btn-primary btn-sm">Lưu</button>
+                <a class="btn btn-danger btn-sm" href="/Admin/NhanVien/Index">Hủy</a>
+            </form>
+            
+        </div>
+    </div>
+</div>
+

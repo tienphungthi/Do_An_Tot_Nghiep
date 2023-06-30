@@ -1,0 +1,54 @@
+﻿@model IEnumerable<QlLopHocSinhVien.Model.Entities.PhongBan>
+@{
+    ViewData["Title"] = "Index";
+    
+}
+
+<div class="row">
+    <div class="col-md-12 grid-margin stretch-card">
+        <div class="card">
+            <div class="card-body">
+
+                <button id="button" class="btn btn-primary mb-3">Xóa một hàng</button>
+                <a href="/PhongBan/Create" class="btn btn-warning  mb-3">Thêm mới</a>
+                <div class="table-responsive">
+                    <table id="example" class="table hover">
+                        <thead>
+                            <tr class="table-success">
+                                <th>STT</th>
+                                <th>Mã phòng ban</th>
+                                <th>Tên phòng ban</th>
+                                <th>Nội dung</th>
+                                <th>Mô tả</th>
+
+                                <th>Quản lý</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var item in Model)
+                            {
+                                <tr class="table-danger">
+                                    <td></td>
+                                    <td>@item.MaPb</td>
+                                    <td>@item.TenPb</td>
+                                    <td>@item.NoiDung</td>
+                                    <td>@item.MoTa</td>
+
+                                    <td>
+                                        <a href="/PhongBan/Edit/@item.MaPb" class="btn btn-primary">Sửa</a>
+                                        <a href="/PhongBan/Delete/@item.MaPb" class="btn btn-warning" style="color:red">Xóa</a>
+
+                                    </td>
+                                </tr>
+                                
+                            }
+
+                        </tbody>
+                    </table>
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
